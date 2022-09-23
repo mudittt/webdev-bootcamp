@@ -1,0 +1,54 @@
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  max-width: 1024px;
+  text-align: center;
+  background-color: #fff;
+  margin: 2rem auto;
+  color: #22577e;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* word-spacing: 3px; */
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+.game-title {
+  font-size: 4rem;
+  padding-bottom: 2rem;
+}
+
+.dice {
+  display: inline-block;
+  margin-top: 10rem;
+  padding: 3rem;
+}
+
+.player-text {
+  margin: 1rem;
+}
+
+.icon {
+  transform: scale(10);
+  padding: 3rem;
+  color: #5584ac;
+}
+.icon2 {
+  transform: scale(10);
+  padding: 3rem;
+  color: #5584ac;
+}
+
+footer {
+  padding-top: 7rem;
+}
+
+.result {
+  color: #c98474;
+  font-weight: 800;
+}
