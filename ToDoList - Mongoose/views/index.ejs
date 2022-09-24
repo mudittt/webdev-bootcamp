@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:,">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div class="giant">
+        <h1 class="to-do-heading">ToDoList!</h1>
+        <h5 class="to-do-date">
+            <%= kindOfDay %>
+        </h5>
+        <div class="to-do-items">
+
+            <% for( let i=0; i < newListItems.length; i++) { %>
+                <form class="checkbox-form" action="/delete" method="post">
+                    <p>
+                        <input type="checkbox" onchange="this.form.submit()" name="check_box"
+                            value="<%= newListItems[i]._id %>">
+                        <%= newListItems[i].name %>
+                    </p>
+                    <input value="<%= kindOfDay %>" type="hidden" name="PageName">
+                </form>
+                <% } %>
+
+        </div>
+        <form action="/" method="post">
+            <input class="to-do-add-new-task" type="text" name="newItem" id="" placeholder="Add a Task-"
+                autocomplete="off">
+            <button value="<%= kindOfDay %>" name="button" class="to-do-add-btn" type="submit"
+                autocomplete="off">Confirm</button>
+        </form>
+    </div>
+</body>
+
+</html>
