@@ -1,0 +1,78 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 0.2rem 0;
+}
+
+input {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #cfd2cf;
+  outline: none;
+}
+
+.whole-body {
+  word-spacing: 2px;
+  margin: 10rem auto;
+  color: #413f42;
+}
+
+.top-icon {
+  display: block;
+  max-width: 5rem;
+  padding: 1.5rem 0 0;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.sub-title {
+  padding: 0.5rem 0;
+}
+
+.btn {
+  background-color: #fff;
+  color: #413f42;
+  display: inline-block;
+  margin: 0.8rem 0 1rem;
+  padding: 0.7rem 2rem;
+  text-decoration: none;
+  border: 1px solid #413f42;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #413f42;
+  color: #fff;
+}
+
+.form-div {
+  margin: 0.2rem 0 0;
+  padding: 0.2rem 0 0;
+}
+
+.secret-title {
+  background-color: #413f42;
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 1.1rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 15px;
+}
