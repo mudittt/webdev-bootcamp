@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+    <div class="whole-body">
+        <img class="top-icon" src="glass.svg" alt="key-icon">
+        <h1 class="title">Login Page</h1>
+        <form action="/login" method="post">
+            <div class="form-div">
+                <label for="email">Email</label>
+                <input type="email" name="username">
+            </div>
+            <div class="form-div">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+            </div>
+            <button class="btn" type="submit">Login</button>
+        </form>
+    </div>
+    <%- include("partials/footer.ejs") %>

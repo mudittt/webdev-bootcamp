@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+    <div class="whole-body">
+        <img class="top-icon" src="glass.svg" alt="key-icon">
+        <h1 class="title">Submit a Secret..</h1>
+        <p class="sub-title">Don't keep your secrets, share them anonymously.</p>
+        <form action="/submit" method="post">
+            <div class="form-div">
+                <input type="text" name="secret" placeholder="What's your Secret?">
+            </div>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+    <%- include("partials/footer.ejs") %>
