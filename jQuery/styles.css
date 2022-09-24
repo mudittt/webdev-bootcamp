@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+}
+
+.big-title {
+  font-size: 10rem;
+  color: coral;
+  font-family: cursive;
+}
+
+.mg-50 {
+  margin: 50px;
+}
