@@ -1,0 +1,55 @@
+.App {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.header {
+  background-color: #f5ba13;
+  margin-bottom: 1rem;
+}
+
+.header-title {
+  padding: 1rem;
+  text-align: left;
+  font-size: 2.4rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.footer {
+  margin: 4rem 0 2rem;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+
+.note {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #ccc;
+  color: #2c3639;
+  float: left;
+  margin: 0.2rem;
+  max-width: 15rem;
+  padding: 0.7rem;
+
+  width: max-content;
+}
+
+.note-title {
+  font-weight: 550;
+  padding-bottom: 0.1rem;
+}
+.note-content {
+  word-spacing: 1px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+@media screen and (max-width: 425px) {
+  .note {
+    float: none;
+    margin: 0.5rem auto;
+  }
+}
