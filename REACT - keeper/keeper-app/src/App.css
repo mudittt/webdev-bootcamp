@@ -33,7 +33,7 @@
   margin: 0.2rem;
   max-width: 15rem;
   padding: 0.7rem;
-
+  text-align: left;
   width: max-content;
 }
 
@@ -51,5 +51,6 @@
   .note {
     float: none;
     margin: 0.5rem auto;
+    text-align: center;
   }
 }
