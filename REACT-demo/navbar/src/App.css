@@ -9,3 +9,19 @@ ul {
 footer {
   margin-top: 5rem;
 }
+
+.card {
+  border-radius: 10px;
+  color: #fff;
+  max-width: 10rem;
+  margin: 1rem auto;
+  word-wrap: break-word;
+  padding: 2rem;
+  width: 10rem;
+  background-color: #59738b;
+}
+
+.card-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

@@ -1,4 +1,7 @@
 import "./App.css";
+import React from "react";
+import Card from "./Cards";
+import Contact from "./Contacts";
 
 let today = new Date();
 let wish;
@@ -21,6 +24,20 @@ if (today.getHours() >= 5 && today.getHours() < 12) {
 }
 
 //
+function createCard(contact) {
+  return (
+    <Card
+      id={contact.id}
+      // they key prop is not for us to use.
+      key={contact.id}
+      name={contact.name}
+      tel={contact.telephone}
+      mail={contact.email}
+    />
+  );
+}
+
+//
 function App() {
   return (
     <div className="App">
@@ -28,17 +45,28 @@ function App() {
         hi
       </h1>
       <h2 style={styled}>Good {wish} !</h2>
-      <ul>
-        {/* JSX in effect */}
-
-        <li>i do not lie {9 + 8}</li>
-        <li>or do i?</li>
-        <li>A random number = {Math.floor(Math.random() * 9)}</li>
-        <li>yea. sure. i do not lie.</li>
-      </ul>
-
+      {/* JSX in effect */}
       {/* we must pass the inline-style as an object */}
       {/* kabab case -> camel case */}
+
+      {/*It will iterate through Contact array and pass each item of it in 'createCard' */}
+      {Contact.map(createCard)}
+
+      {/* <Card
+        name={Contact[0].name}
+        tel={Contact[0].telephone}
+        mail={Contact[0].email}
+      />
+      <Card
+        name={Contact[1].name}
+        tel={Contact[1].telephone}
+        mail={Contact[1].email}
+      />
+      <Card
+        name={Contact[2].name}
+        tel={Contact[2].telephone}
+        mail={Contact[2].email}
+      /> */}
 
       <footer style={{ color: "darkslategrey" }}>
         Copyright © {today.getFullYear()}
