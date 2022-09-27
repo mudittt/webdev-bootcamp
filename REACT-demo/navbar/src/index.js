@@ -4,14 +4,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 // imported the App function to use it as a REACT COMPONENT
+// eslint-disable-next-line
 import App from "./App";
+import ConditionalRendering from "./ConditionalRendering";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // ReactDOM.render(WHAT_TO_SHOW, WHERE_TO_SHOW, CALLBACK)
 root.render(
   <React.StrictMode>
     {/* used App function as a tag. */}
-    <App />
+    {/* <App /> */}
+    <ConditionalRendering />
   </React.StrictMode>
 );
 

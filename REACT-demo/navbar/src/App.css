@@ -10,6 +10,9 @@ footer {
   margin-top: 5rem;
 }
 
+::placeholder {
+  color: #b9b9b9;
+}
 .card {
   border-radius: 10px;
   color: #fff;
@@ -24,4 +27,40 @@ footer {
 .card-title {
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.btn {
+  border-style: none;
+  background-color: #fff;
+  border: 1px solid #6e6e6e;
+  border-radius: 5px;
+  color: #6e6e6e;
+  display: block;
+  margin: 1rem auto;
+  padding: 0.7rem 2rem;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #6e6e6e;
+}
+
+.input {
+  display: block;
+  border-radius: 5px;
+  border-style: none;
+  border: 1px solid #d1d1d1;
+  margin: 0.7rem auto 0;
+  text-align: center;
+  padding: 0.7rem 2rem;
+}
+
+.input:hover {
+  border: 1px solid #b9b9b9;
+}
+
+.input:focus {
+  border-style: none;
+  outline: 0;
+  border: 1px solid #6e6e6e;
 }
