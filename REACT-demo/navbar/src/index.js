@@ -8,7 +8,9 @@ import "./index.css";
 import App from "./App";
 // eslint-disable-next-line
 import ConditionalRendering from "./ConditionalRendering";
+// eslint-disable-next-line
 import HooksState from "./Hooks-State";
+import EventHandler from "./EventHandler";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // ReactDOM.render(WHAT_TO_SHOW, WHERE_TO_SHOW, CALLBACK)
@@ -17,7 +19,8 @@ root.render(
     {/* used App function as a tag. */}
     {/* <App /> */}
     {/* <ConditionalRendering /> */}
-    <HooksState />
+    {/* <HooksState /> */}
+    <EventHandler />
   </React.StrictMode>
 );
 
