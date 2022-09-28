@@ -10,7 +10,9 @@ import App from "./App";
 import ConditionalRendering from "./ConditionalRendering";
 // eslint-disable-next-line
 import HooksState from "./Hooks-State";
+// eslint-disable-next-line
 import EventHandler from "./EventHandler";
+import Forms from "./Forms";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // ReactDOM.render(WHAT_TO_SHOW, WHERE_TO_SHOW, CALLBACK)
@@ -20,7 +22,8 @@ root.render(
     {/* <App /> */}
     {/* <ConditionalRendering /> */}
     {/* <HooksState /> */}
-    <EventHandler />
+    {/* <EventHandler /> */}
+    <Forms />
   </React.StrictMode>
 );
 
