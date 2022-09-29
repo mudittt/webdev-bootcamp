@@ -1,50 +1,53 @@
 import "./ToDoList.css";
 import React from "react";
+import ToDoItems from "./ToDoItems";
+import InputArea from "./InputArea";
 
 let today = new Date();
 
 function ToDoList() {
-  let [enteredText, setEnteredText] = React.useState("");
   let [array, setArray] = React.useState([
     "React- toDoList completion",
     "Internship in November",
   ]);
 
-  function handleText(e) {
-    setEnteredText(e.target.value);
-  }
-  function handleClick(e) {
+  function handleClick(enteredText) {
     setArray((previousArray) => {
       // modified the array using spread operator
       return [...previousArray, enteredText];
     });
-
-    // this will clear the data in the input after we press the button.
-    setEnteredText("");
-    e.preventDefault();
   }
+
+  function deleteItem(id) {
+    // accessing the previous array
+    setArray((previousArray) => {
+      // filtering it
+      // read the docs for the arguements and parameters of the callback fn
+      return previousArray.filter((item, index) => {
+        // the condition
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="ToDoList">
       <h1 className="ToDoList-title">My Day :]</h1>
       <p className="ToDoList-date">{today.toDateString()}</p>
       <div className="ToDoList-box">
-        <form action="">
-          <input
-            onChange={handleText}
-            className="input"
-            type="text"
-            placeholder="Add New Item To Your List"
-            value={enteredText}
-          />
-          <button onClick={handleClick} className="btn">
-            Add
-          </button>
-        </form>
         <ul>
-          {array.map((item) => (
-            <li className="ToDoList-box-list">{item}</li>
+          {array.map((item, index) => (
+            <ToDoItems
+              text={item}
+              key={index}
+              id={index}
+              // here we got the div with its id
+              // and called the function 'deleteItem'
+              onClicked={deleteItem}
+            />
           ))}
         </ul>
+        <InputArea Click={handleClick} />
       </div>
     </div>
   );
