@@ -13,11 +13,12 @@
   padding: 1rem;
   text-align: left;
   font-size: 2.4rem;
-  color: #fff;
+  color: #ffffff;
   font-weight: 500;
 }
 
 .footer {
+  color: #9c9c9c;
   margin: 4rem 0 2rem;
   position: absolute;
   bottom: 1rem;
@@ -25,12 +26,14 @@
 }
 
 .note {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 5px #ccc;
+  box-shadow: 0 2px 5px #cccccc;
   color: #2c3639;
-  float: left;
-  margin: 0.2rem;
+  cursor: pointer;
+  /* float: left; */
+  display: inline-block;
+  margin: 0.4rem 0.2rem;
   max-width: 15rem;
   padding: 0.7rem;
   text-align: left;
@@ -53,4 +56,63 @@
     margin: 0.5rem auto;
     text-align: center;
   }
+  .input-container {
+    max-width: 90%;
+  }
+}
+
+.note-container {
+  margin: 0 auto;
+  max-width: 85rem;
+}
+
+.note-btn {
+  font-size: 0.7rem;
+  color: #cccccc;
+  display: block;
+  margin: 0.8rem auto 0;
+  padding: 0.3rem 0.6rem;
+  outline: 0;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.note-btn:hover {
+  color: #ff0000;
+}
+
+.input-container {
+  box-shadow: 0 2px 5px #cccccc;
+  margin: 2rem auto 2rem;
+  width: 15rem;
+  height: 8rem;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.input {
+  width: 14rem;
+  color: #2c3639;
+  font-size: 1.3rem;
+  display: block;
+  border-style: none;
+  outline: 0;
+  padding: 0.5rem 0.5rem;
+}
+
+.add-btn {
+  color: #f5ba13;
+  font-size: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0.1rem 0.6rem;
+}
+
+.add-btn:hover {
+  background-color: #f5ba13;
+  color: #ffffff;
 }
