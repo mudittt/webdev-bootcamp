@@ -13,7 +13,8 @@ function Item(props) {
 
   // making a http request to fetch that canister
   // const localHost = "https://localhost:8080/";
-  const localHost = "http://localhost:8080/";
+  // const localHost = "http://localhost:8080/";
+  const localHost = "http://localhost:8000/";
   const agent = new HttpAgent({ host: localHost });
   async function loadNFT() {
     console.log("Entered loadNFT");
