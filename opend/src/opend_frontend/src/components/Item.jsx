@@ -8,21 +8,22 @@ function Item(props) {
   const [nftName, setName] = React.useState();
   const [nftOwner, setOwner] = React.useState();
   const [nftImage, setImage] = React.useState();
+
   const id = Principal.fromText(props.id);
-  console.log(id);
+  // const id = props.id;
+  // console.log(id);
 
   // making a http request to fetch that canister
   // const localHost = "https://localhost:8080/";
-  // const localHost = "http://localhost:8080/";
   const localHost = "http://localhost:8000/";
   const agent = new HttpAgent({ host: localHost });
   async function loadNFT() {
-    console.log("Entered loadNFT");
+    // console.log("Entered loadNFT");
     const NFTActor = await Actor.createActor(idlFactory, {
       agent,
       canisterId: id,
     });
-    console.log(NFTActor);
+    // console.log(NFTActor);
     // console.log(NFTActor.getName());
     // console.log(NFTActor.getOwner());
     // console.log(NFTActor.getAsset());
@@ -40,7 +41,7 @@ function Item(props) {
   }
 
   React.useEffect(() => {
-    console.log("useEffect working");
+    // console.log("useEffect working");
     loadNFT();
   }, []);
 
