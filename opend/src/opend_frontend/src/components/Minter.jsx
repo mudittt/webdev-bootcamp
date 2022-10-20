@@ -11,8 +11,8 @@ function Minter() {
 
   async function onSubmit(data) {
     setLoaderHidden(false);
-    console.log(data.name);
-    console.log(data.image);
+    // console.log(data.name);
+    // console.log(data.image);
     // console.log(data.image[0]);
     // console.log(data.image[0] instanceof Blob);
 
@@ -21,8 +21,8 @@ function Minter() {
     const imageArray = await imageBlob.arrayBuffer();
 
     const nftImage = [...new Uint8Array(imageArray)];
-    console.log(nftImage);
-    console.log(opend_backend);
+    // console.log(nftImage);
+    // console.log(opend_backend);
     const newNFTid = await opend_backend.mint(nftName, nftImage);
 
     //   console.log(newNFTid.toText());
