@@ -5,6 +5,8 @@ import { HttpAgent } from "@dfinity/agent";
 import { idlFactory } from "../../../declarations/nft";
 import { opend_backend } from "../../../declarations/opend_backend";
 import Button from "./Button";
+import PriceLabel from "./PriceLabel";
+import CURRENT_USER_ID from "../index";
 
 function Item(props) {
   const [nftName, setName] = React.useState();
@@ -17,6 +19,8 @@ function Item(props) {
   const [isLoaderHidden, setLoaderHidden] = React.useState(true);
   const [blurr, setBlurr] = React.useState();
   const [sellStatus, setSellStatus] = React.useState("");
+
+  const [priceLabel, setPriceLabel] = React.useState();
 
   const id = Principal.fromText(props.id);
   // const id = props.id;
@@ -53,14 +57,25 @@ function Item(props) {
     setOwner(nftOwner.toText());
     setImage(nftImage);
 
-    let isNftListed = await opend_backend.isListed(id);
+    if (props.role == "collection") {
+      let isNftListed = await opend_backend.isListed(id);
+      // console.log(`Item Listed? - ${isNftListed}`);
+      if (isNftListed) {
+        setOwner("OpenD");
+        setBlurr({ filter: "blur(4px)" });
+        setSellStatus("Listed");
+      } else {
+        setButton(<Button handleClick={handleSell} text="Sell" />);
+      }
+    } else if (props.role == "discover") {
+      const originalOwner = await opend_backend.getOriginalOwner(id);
 
-    if (isNftListed) {
-      setOwner("OpenD");
-      setBlurr({ filter: "blur(4px)" });
-      setSellStatus("Listed");
-    } else {
-      setButton(<Button handleClick={handleSell} text="Sell" />);
+      if (originalOwner.toText() != CURRENT_USER_ID.toText()) {
+        setButton(<Button handleClick={handleBuy} text="Buy" />);
+      }
+
+      let price = await opend_backend.getListedNftPrice(id);
+      setPriceLabel(<PriceLabel price={price.toString()} />);
     }
   }
 
@@ -70,6 +85,7 @@ function Item(props) {
   }, []);
 
   let price;
+
   function handleSell() {
     console.log("Sell Clicked.");
     setPriceInput(
@@ -84,6 +100,10 @@ function Item(props) {
       />
     );
     setButton(<Button handleClick={sellItem} text="Confirm" />);
+  }
+
+  function handleBuy() {
+    console.log("Buy was triggered!");
   }
 
   async function sellItem() {
@@ -130,6 +150,7 @@ function Item(props) {
           <div></div>
           <div></div>
         </div>
+        {priceLabel}
         <div className="disCardContent-root">
           <h2 className="disTypography-root makeStyles-bodyText-24 disTypography-h5 disTypography-gutterBottom">
             {nftName}
