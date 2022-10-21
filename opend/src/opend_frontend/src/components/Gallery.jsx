@@ -6,7 +6,7 @@ function Gallery(props) {
   const [items, setItems] = React.useState();
 
   function fetchNFTs() {
-    console.log(props.ids);
+    // console.log(props.ids);
     if (props.ids != undefined) {
       setItems(
         props.ids.map((NFTid) => (
