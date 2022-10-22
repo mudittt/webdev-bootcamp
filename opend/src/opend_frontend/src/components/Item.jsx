@@ -3,6 +3,7 @@ import { Principal } from "@dfinity/principal";
 import { Actor } from "@dfinity/agent";
 import { HttpAgent } from "@dfinity/agent";
 import { idlFactory } from "../../../declarations/nft";
+import { idlFactory as tokenIdlFactory } from "../../../declarations/token_backend";
 import { opend_backend } from "../../../declarations/opend_backend";
 import Button from "./Button";
 import PriceLabel from "./PriceLabel";
@@ -21,6 +22,7 @@ function Item(props) {
   const [sellStatus, setSellStatus] = React.useState("");
 
   const [priceLabel, setPriceLabel] = React.useState();
+  const [shouldDisplay, setShouldDisplay] = React.useState(true);
 
   const id = Principal.fromText(props.id);
   // const id = props.id;
@@ -102,8 +104,33 @@ function Item(props) {
     setButton(<Button handleClick={sellItem} text="Confirm" />);
   }
 
-  function handleBuy() {
+  async function handleBuy() {
     console.log("Buy was triggered!");
+    setLoaderHidden(false);
+    const TOKENActor = await Actor.createActor(tokenIdlFactory, {
+      agent,
+      canisterId: Principal.fromText("rrkah-fqaaa-aaaaa-aaaaq-cai"),
+    });
+    console.log(TOKENActor);
+    const sellerId = await opend_backend.getOriginalOwner(id);
+    console.log(sellerId);
+    const price = await opend_backend.getListedNftPrice(id);
+    console.log(price);
+
+    const transferInformation = await TOKENActor.transfer(sellerId, price);
+    console.log(transferInformation);
+
+    if (transferInformation == "Successfully Transfered!") {
+      let completionResult = await opend_backend.completePurchase(
+        id,
+        sellerId,
+        CURRENT_USER_ID
+      );
+      if (completionResult == "Success.") {
+        setLoaderHidden(true);
+        setShouldDisplay(false);
+      }
+    }
   }
 
   async function sellItem() {
@@ -137,7 +164,10 @@ function Item(props) {
   }
 
   return (
-    <div className="disGrid-item">
+    <div
+      style={{ display: shouldDisplay ? "inline" : "none" }}
+      className="disGrid-item"
+    >
       <div className="disPaper-root disCard-root makeStyles-root-17 disPaper-elevation1 disPaper-rounded">
         <img
           className="disCardMedia-root makeStyles-image-19 disCardMedia-media disCardMedia-img"
@@ -150,12 +180,12 @@ function Item(props) {
           <div></div>
           <div></div>
         </div>
-        {priceLabel}
         <div className="disCardContent-root">
           <h2 className="disTypography-root makeStyles-bodyText-24 disTypography-h5 disTypography-gutterBottom">
             {nftName}
             <span className="purple-text"> {sellStatus}</span>
           </h2>
+          {priceLabel}
           <p className="disTypography-root makeStyles-bodyText-24 disTypography-body2 disTypography-colorTextSecondary">
             Owner: {nftOwner}
           </p>
